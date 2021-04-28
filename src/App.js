@@ -15,10 +15,11 @@ const App = (props) => {
   const [lightIntensity, setLightIntensity] = React.useState("")
   const [width, setWidth] = React.useState()
   const [height, setHeight] = React.useState()
-  const [today, setToday] = React.useState(formatDate(new Date()))
+  const [today, setToday] = React.useState("4-11-2021")
+  // const [today, setToday] = React.useState(formatDate(new Date()))
 
   const setCurrentReadings = (readings) => {
-    setToday(formatDate(new Date()))
+    // setToday(formatDate(new Date()))
     setRoomTemp("")
     setHumidity("")
 
@@ -84,10 +85,10 @@ const App = (props) => {
             <h3>Weather</h3>
             
             <div className="text-center">
-              <p>{ readings["Room Temp"] ? (readings["Room Temp"][today] ? readings["Room Temp"][today][RoomTemp] : "No readings") : "No readings" }</p>
-              
-              <br />
-              <h5>{ readings["Light Intensity"] ? (readings["Light Intensity"][today] ? (readings["Light Intensity"][today][lightIntensity]>=400 ? "Day" : "Night" ) : "No readings") : "No readings" }</h5>
+              <p class="large">{ readings["Room Temp"] ? (readings["Room Temp"][today] ? (readings["Room Temp"][today][RoomTemp]+"°C") : "No readings") : "No readings" }</p>
+              <p class="large">{ readings["Light Intensity"] ? (readings["Light Intensity"][today] ? (readings["Light Intensity"][today][lightIntensity]>=400 ? "Day" : "Night" ) : "No readings") : "No readings" }</p>
+
+              <h5>Humidity: { readings.Humidity ? (readings.Humidity[today] ? readings.Humidity[today][Humidity] : "No readings") : "No readings" }</h5>
             </div>
           </div>
         </div>
